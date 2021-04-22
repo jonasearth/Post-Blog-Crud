@@ -21,11 +21,13 @@ export class UpdatePostUseCase {
         }
 
         if (await this.postRepository.getByUrl(data.url, data.id) === false)
-            throw new Error("Um Post com essa url já existe");
+            throw new Error("Um Post com essa url já existe!");
 
-        await this.postRepository.update(data.id, data.title, data.body, data.author, data.tags, data.url)
-        return "Admin criado com sucesso!"
-
+        if(await this.postRepository.update(data.id, data.title, data.body, data.author, data.tags, data.url))
+            return "Post atualizado com sucesso!"
+        else{ 
+            throw new Error("Não foi possivel atualizar o post!");
+        }
 
     }
 }

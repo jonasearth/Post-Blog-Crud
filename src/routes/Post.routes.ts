@@ -5,7 +5,6 @@ import { createPostController } from '../useCases/Post/CreatePost/'
 import { updatePostController } from '../useCases/Post/UpdatePost/'
 import { deletePostController } from '../useCases/Post/DeletePost/'
 
-
 export class PostRoutes {
     public router: Router
     public API_ROUTE: string
@@ -25,6 +24,7 @@ export class PostRoutes {
             return createPostController.handle(request, response)
         });
         this.router.put(this.API_ROUTE + '/post/:id', (request, response) => {
+            
             return updatePostController.handle(request, response)
         });
         this.router.delete(this.API_ROUTE + '/post/:id', (request, response) => {

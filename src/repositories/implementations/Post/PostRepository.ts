@@ -1,10 +1,5 @@
 import { IPostRepository } from "./IPostRepository";
-
-import { Post } from "../../../entities/Post";
-
 import  PostModel  from "./PostModel";
-
-
 export class PostRepository implements IPostRepository {
 
 	async getById(id: string) {
@@ -16,6 +11,7 @@ export class PostRepository implements IPostRepository {
             return null;
         
 	}
+
     async getByUrl(url: string, id?: string) {
 
         const resp = await PostModel.find({url: url})
@@ -34,7 +30,6 @@ export class PostRepository implements IPostRepository {
         return await PostModel.find({});
 	}
 
-    
 	async create(title: string, body: string,author: string, tags: string[], url: string): Promise<boolean> {
 		const date = new Date();
 
@@ -54,10 +49,11 @@ export class PostRepository implements IPostRepository {
 
 		return;
 	}
+    
     async update(id: string, title: string, body: string,author: string, tags: string[], url: string): Promise<boolean> {
 		const date = new Date();
 
-        PostModel.findByIdAndUpdate(id,{
+        const resp = await PostModel.updateOne({_id:id},{
             title,
             body,
             author,
@@ -65,11 +61,9 @@ export class PostRepository implements IPostRepository {
             url,
             updated_at: date,
             
-        }, function (err ) {
-            if (err) return false;
-            else return true;
         })
-
+         if (resp.n === 1) return true;
+            else return false;
 		return;
 	}
 

@@ -22,7 +22,7 @@ export class UpdatePostController {
 		try {
 			const resp = await this.updatePostUseCase.execute(post);
 
-			return response.status(201).json({ error: false, data: resp });
+			return response.status(200).json({ error: false, data: resp });
 		} catch (err) {
 			return response.status(400).json({
 				error: true,

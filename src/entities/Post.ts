@@ -6,7 +6,6 @@ export class Post {
     public body: string;
     public url: string;
     public author: string;
-    
     public tags: string[];
 
 
