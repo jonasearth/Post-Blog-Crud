@@ -14,7 +14,6 @@ export class GetPostController {
           else            
             resp = await this.getPostUseCase.getAll();
           
-
           return response.status(201).json({ error: false, data: resp });
         } catch (err) {
           return response.status(400).json({

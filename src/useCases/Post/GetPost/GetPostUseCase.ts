@@ -5,8 +5,8 @@ export class GetPostUseCase {
         private postRepository: IPostRepository,
     ) { }
 
-    async find(url: string) {   
-        return await this.postRepository.getByUrl(url);
+    async find(id: string) {   
+        return await this.postRepository.getByUrl(id);
     }
 
     async getAll() {
