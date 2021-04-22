@@ -26,7 +26,7 @@ export class UpdatePostController {
 		} catch (err) {
 			return response.status(400).json({
 				error: true,
-				message: err.message || "Unexpected error.",
+				message: "Erro Inesperado!",
 			});
 		}
 	}
