@@ -24,7 +24,7 @@ export class CreatePostUseCase {
             throw new Error("Um Post com esse titulo já existe");
 
         await this.postRepository.create(data.title, data.body, data.author, data.tags, data.url)
-        return "Admin criado com sucesso!"
+        return "Post criado com sucesso!"
 
     } 
 }
