@@ -4,9 +4,12 @@ export class Post {
 
     public id: string;
 
-    public name: string;
-    public email: string;
-    public password: string;
+    public title: string;
+    public body: string;
+    public url: string;
+    public author: string;
+    
+    public tags: string[];
 
     constructor(props: Omit<Post, 'id'>, id?: string) {
         Object.assign(this, props);

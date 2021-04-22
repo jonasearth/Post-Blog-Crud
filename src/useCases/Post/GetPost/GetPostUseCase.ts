@@ -1,4 +1,3 @@
-import { IGetPostRequestDTO } from "./GetPostDTO";
 import { IPostRepository } from "../../../repositories/implementations/Post/IPostRepository";
 
 export class GetPostUseCase {
@@ -6,8 +5,11 @@ export class GetPostUseCase {
         private postRepository: IPostRepository,
     ) { }
 
-    async execute(data: IGetPostRequestDTO) {
-       
+    async find(url: string) {   
+        return await this.postRepository.getByUrl(url);
+    }
 
+    async getAll() {
+       return await this.postRepository.getAll();
     }
 }
