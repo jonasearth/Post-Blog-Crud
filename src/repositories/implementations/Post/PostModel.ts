@@ -14,6 +14,8 @@ const PostSchema = new mongoose.Schema({
      url: String,
      author: String,
      tags: [String],
+     created_at: Date,
+     updated_at: Date
 })
 
 export default mongoose.model<IPost>('Post', PostSchema);

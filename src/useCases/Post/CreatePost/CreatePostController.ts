@@ -15,7 +15,8 @@ export class CreatePostController {
             body: request.body.body,
             author: request.body.author,
             tags:request.body.tags,
-            url: convertStringToUrl(request.body.title),
+            url: (request.body.url)?convertStringToUrl(request.body.url):convertStringToUrl(request.body.title),
+            
         })
 
         try {

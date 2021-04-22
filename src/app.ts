@@ -5,6 +5,9 @@ mongoose.connect('mongodb+srv://postman:jonas@cluster0.ddncs.mongodb.net/posts?r
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
+mongoose.set('useFindAndModify', false);
+
+
 const app = express();
 
 app.use(express.json());
