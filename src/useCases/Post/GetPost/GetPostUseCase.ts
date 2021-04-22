@@ -6,7 +6,7 @@ export class GetPostUseCase {
     ) { }
 
     async find(id: string) {   
-        return await this.postRepository.getByUrl(id);
+        return await this.postRepository.getById(id);
     }
 
     async getAll() {

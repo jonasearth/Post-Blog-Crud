@@ -7,9 +7,18 @@ import  PostModel  from "./PostModel";
 
 export class PostRepository implements IPostRepository {
 
-	async getByUrl(id: string) {
+	async getById(id: string) {
 
         const resp = await PostModel.findById(id)
+        if (resp)    
+            return resp;  
+        else
+            return null;
+        
+	}
+    async getByUrl(url: string) {
+
+        const resp = await PostModel.find({url: url})
         if (resp[0])    
             return resp[0];  
         else
