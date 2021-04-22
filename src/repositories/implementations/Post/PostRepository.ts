@@ -16,7 +16,7 @@ export class PostRepository implements IPostRepository {
 
         const resp = await PostModel.find({url: url})
         if (resp[0])    
-            if (id) {
+            if (id == resp[0].id) {
                 return resp[0]
             }else { 
                 return false  

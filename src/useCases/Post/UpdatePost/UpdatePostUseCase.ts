@@ -19,6 +19,9 @@ export class UpdatePostUseCase {
         if (data.title.length < 1 ) {
             throw new Error("Autor não pode ser em branco!")
         }
+        if (data.url.length < 1 ) {
+            throw new Error("Url não pode ser em branco!")
+        }
 
         if (await this.postRepository.getByUrl(data.url, data.id) === false)
             throw new Error("Um Post com essa url já existe!");
